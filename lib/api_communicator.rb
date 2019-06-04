@@ -33,3 +33,5 @@ end
 
 # that `get_character_movies_from_api` method is probably pretty long. Does it do more than one job?
 # can you split it up into helper methods?
+
+get_character_movies_from_api("Luke")
