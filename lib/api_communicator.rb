@@ -7,8 +7,10 @@ def get_character_movies_from_api(character_name)
   response_string = RestClient.get('http://www.swapi.co/api/people/')
   response_hash = JSON.parse(response_string)
 
+
   # iterate over the response hash to find the collection of `films` for the given
   #   `character`
+
   # collect those film API urls, make a web request to each URL to get the info
   #  for that film
   # return value of this method should be collection of info about each film.
@@ -27,7 +29,17 @@ def show_character_movies(character)
   print_movies(films)
 end
 
+get_character_movies_from_api("samip")
 ## BONUS
 
 # that `get_character_movies_from_api` method is probably pretty long. Does it do more than one job?
 # can you split it up into helper methods?
+ 
+
+def film_api_helper(url)
+response_string=RestClient.get url
+response_hash=JSON.parse(response_string)
+binding.pry
+end
+
+  film_api_helper("https://www.swapi.co/api/films/2/")
