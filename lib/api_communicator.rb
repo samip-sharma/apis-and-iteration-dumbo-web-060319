@@ -2,6 +2,11 @@ require 'rest-client'
 require 'json'
 require 'pry'
 
+def film_api_helper(url)
+response_string=RestClient.get url
+response_hash=JSON.parse(response_string)
+end
+
 def get_character_movies_from_api(character_name)
   result = []
   #make the web request
@@ -38,9 +43,12 @@ def print_movies(films)
   films.each do |film_hash|
     puts "--"*10
     puts "Title:"
+   
     puts film_hash["title"]
-    puts "Description"
+    puts ""
+    puts "Description:"
     puts film_hash["opening_crawl"]
+    puts ""
   end
 
 end
@@ -58,10 +66,7 @@ get_character_movies_from_api("samip")
 # can you split it up into helper methods?
 
 
-def film_api_helper(url)
-response_string=RestClient.get url
-response_hash=JSON.parse(response_string)
-end
+
 
 # that `get_character_movies_from_api` method is probably pretty long. Does it do more than one job?
 # can you split it up into helper methods?
