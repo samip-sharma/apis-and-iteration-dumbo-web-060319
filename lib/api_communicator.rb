@@ -43,7 +43,6 @@ get_character_movies_from_api("samip")
 
 # that `get_character_movies_from_api` method is probably pretty long. Does it do more than one job?
 # can you split it up into helper methods?
- 
 
 def film_api_helper(url)
 response_string=RestClient.get url
@@ -53,3 +52,4 @@ end
 
   film_api_helper("https://www.swapi.co/api/films/2/")
   [{}]
+
